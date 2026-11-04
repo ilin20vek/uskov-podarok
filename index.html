@@ -67,7 +67,7 @@ h2{font-size:clamp(36px,5.6vw,66px);line-height:1;max-width:19em}
 .e0 .svet{position:absolute;inset:0;background:radial-gradient(60% 70% at 78% 40%,rgba(0,71,203,.55),transparent 70%)}
 .e0 .lico{position:absolute;right:0;top:0;height:100%;width:58%;object-fit:cover;object-position:50% 30%;-webkit-mask-image:linear-gradient(to left,#000 45%,transparent 100%),linear-gradient(to top,transparent 0,#000 30%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to left,#000 45%,transparent 100%),linear-gradient(to top,transparent 0,#000 30%);mask-composite:intersect}
 .e0 .in{width:100%}
-.e0 .tekst{max-width:640px}
+.e0 .tekst{max-width:min(640px,46vw)}
 .emb{display:block;width:64px;height:64px;margin:0 0 34px;clip-path:inset(0 0 9% 0)}
 .obr{display:block;font:italic 400 clamp(30px,4.4vw,48px)/1.1 var(--sr);color:var(--cy);margin-bottom:8px;letter-spacing:0}
 .e0 .tx{font-size:clamp(18px,1.6vw,21px)}
@@ -230,13 +230,17 @@ h2{font-size:clamp(36px,5.6vw,66px);line-height:1;max-width:19em}
  .str{padding:14px}
  .str svg{transform:rotate(90deg)}
 }
-@media (max-width:640px){
- body{font-size:17px}
+/* лицо и текст не пересекаются: до 900 px лицо сверху, текст под подбородком (Игорь 04.11) */
+@media (max-width:900px){
  .e0{align-items:flex-end;padding-top:0}
  .e0 .lico{width:100%;height:auto;aspect-ratio:760/683;top:0;-webkit-mask-image:linear-gradient(to bottom,#000 50%,transparent 96%);mask-image:linear-gradient(to bottom,#000 50%,transparent 96%)}
  .e0 .svet{background:radial-gradient(90% 50% at 50% 22%,rgba(0,71,203,.5),transparent 70%)}
- .e0 .in{padding-top:68vw}
- .e0 .in{position:static}
+ .e0 .in{padding-top:84vw;position:static}
+ .e0 .tekst{max-width:640px}
+ .emb{position:absolute;top:20px;left:20px;width:52px;height:52px;z-index:2}
+}
+@media (max-width:640px){
+ body{font-size:17px}
  .emb{position:absolute;top:20px;left:20px;width:52px;height:52px;z-index:2}
  .lyudi,.kol{grid-template-columns:1fr}
  .mini{grid-template-columns:1fr 1fr 1fr;gap:10px}
